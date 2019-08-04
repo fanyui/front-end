@@ -84,8 +84,6 @@ class DesktopContainer extends Component {
                    active={activeItem === 'shophere'}
                    onClick={this.handleItemClick} />
 
-        
-
               <Menu.Item position="right">
                 <SearchCustom />
               </Menu.Item>
@@ -125,17 +123,19 @@ DesktopContainer.propTypes = {
 }
 
 class MobileContainer extends Component {
- state = { activeItem: 'home', open: false }
+ state = { activeItem: 'home', open: false, requiresAuth: false }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name })
   
   handleSidebarHide = () => this.setState({ sidebarOpened: false })
+  handleLogin = () => this.setState({ requiresAuth: true })
+  close = () => this.setState({ requiresAuth: false })
 
   handleToggle = () => this.setState({ sidebarOpened: true })
 
   render() {
     const { children } = this.props
-    const { sidebarOpened, activeItem } = this.state
+    const { sidebarOpened, activeItem, requiresAuth } = this.state
 
     return (
       <Responsive
@@ -143,6 +143,7 @@ class MobileContainer extends Component {
         getWidth={getWidth}
         maxWidth={Responsive.onlyMobile.maxWidth}
       >
+
         <Sidebar
           as={Menu}
           animation='push'
@@ -152,51 +153,33 @@ class MobileContainer extends Component {
           visible={sidebarOpened}
         >
           <Menu.Item as={Link} to='/'
-           name='shophere'
-           active={activeItem === 'shophere'}
-           onClick={this.handleItemClick} />
+                  name='shophere'
+                   active={activeItem === 'shophere'}
+                   onClick={this.handleItemClick} />
 
-          <Menu.Item
-            as={Link} to='/women'
-            name='women'
-            active={activeItem === 'women'}
-            onClick={this.handleItemClick}
-          />
+              <Menu.Item position="right">
+                <SearchCustom />
+              </Menu.Item>
 
-          <Menu.Item
-            as={Link} to='/kids'
-            name='kids'
-            active={activeItem === 'kids'}
-            onClick={this.handleItemClick}
-          />
+               
+                 {  (helper.isloggedin() ===false) ? 
+                  <Menu.Item position='right'>
 
-          <Menu.Item
-            as={Link} to='/men'
-            name='men'
-            active={activeItem === 'men'}
-            onClick={this.handleItemClick}
-          />
+                    <Button as='a'  onClick={this.handleLogin} >
+                      Log in 
+                    </Button>
+                    <Button onClick={this.handleLogin} style={{ marginLeft: '0.5em' }}>
+                      Sign Up
+                    </Button>
 
-          <Menu.Item
-            as={Link} to='/shoes'
-            name='shoes'
-            active={activeItem === 'shoes'}
-            onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            as={Link} to='/brand'
-            name='brands'
-            active={activeItem === 'brands'}
-            onClick={this.handleItemClick}
-          />
+                    </Menu.Item>
+                    : 
+                    <Menu.Item position='right'>
+                      <Button  onClick={() => helper.logOut()} circular icon='user circle' style={{ marginLeft: '0.5em' }} />
+                      <Button as={Link} to='/cart' circular color='shopping cart' style={{ marginLeft: '0.5em' }} icon='shopping cart' />
 
-          <Menu.Item>
-            <SearchCustom />
-          </Menu.Item>
-
-
-          <Menu.Item as='a' href="/login">Log in</Menu.Item>
-          <Menu.Item as='a'>Sign Up</Menu.Item>
+                    </Menu.Item>
+                  }
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -210,20 +193,40 @@ class MobileContainer extends Component {
                 <Menu.Item onClick={this.handleToggle}>
                   <Icon name='sidebar' />
                 </Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
+                {  (helper.isloggedin() ===false) ? 
+                  <Menu.Item position='right'>
+
+                    <Button as='a'  onClick={this.handleLogin} >
+                      Log in 
+                    </Button>
+                    <Button onClick={this.handleLogin} style={{ marginLeft: '0.5em' }}>
+                      Sign Up
+                    </Button>
+                    </Menu.Item>
+                    : 
+                    <Menu.Item position='right'>
+                      <Button  onClick={() => helper.logOut()} circular icon='user circle' style={{ marginLeft: '0.5em' }} />
+                      <Button as={Link} to='/cart' circular color='shopping cart' style={{ marginLeft: '0.5em' }} icon='shopping cart' />
+                    </Menu.Item>
+                  }
+
               </Menu>
             </Container>
           </Segment>
 
           {children}
         </Sidebar.Pusher>
+
+                  <Modal size="tiny" open={requiresAuth} onClose={this.close}>
+          <Modal.Header>Create Your Account | Login </Modal.Header>
+          <Modal.Content>
+          <LoginSignup />
+          </Modal.Content>
+          <Modal.Actions>
+            <Button onClick={this.close} negative>close</Button>
+            <Button onClick={this.close} positive icon='checkmark' labelPosition='right' content='OK' />
+          </Modal.Actions>
+        </Modal>
       </Responsive>
     )
   }

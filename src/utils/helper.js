@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import { handleCustomerLogout } from '../action/customer'
 export default {
 
 	 isloggedin(){
@@ -13,6 +14,7 @@ export default {
 	 },	
 
 	  logOut(){
+	  	 handleCustomerLogout()
 	 	 localStorage.removeItem('token')
 	 	 return <Redirect to='/' />
 	 },

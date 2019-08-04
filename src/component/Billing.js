@@ -48,7 +48,7 @@ class Billing extends React.Component {
 
 		  };
 		  console.log( "sending the following to the backend", body)
-    fetch('http://127.0.0.1:3000/api/v1/stripe/payment', {
+    fetch('https://nodebackendreactfrontend.herokuapp.com/api/v1/stripe/payment', {
       method: 'POST',
 		headers: {
 			Accept: 'application/json',
