@@ -98,7 +98,7 @@ class ItemDetail extends Component{
 				rating: this.state.rating,
 				review: this.state.review,
 				}
-			this.props.handleAddProductReview(id, JSON.stringify(body))
+			this.props.handleAddProductReview(id, body)
 		}
 	}
 
