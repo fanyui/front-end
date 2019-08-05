@@ -71,7 +71,7 @@ class DesktopContainer extends Component {
               inverted={!fixed}
               secondary={!fixed}
               size='small'
-              style={{height:'20px'}}
+              style={{height:'30px'}}
             >
               <Container>
                 <Menu.Item as={Link} to='/'
