@@ -65,7 +65,7 @@ export default {
 				headers: {
 				Accept: 'application/json',
 				'Content-Type': 'application/json',
-				'Authorization': localStorage.getItem('token'),
+				'Authorization': `${localStorage.getItem('token')}`,
 
 				},
 				body: JSON.stringify(body),

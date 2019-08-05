@@ -88,6 +88,7 @@ export function cart_update_item_quantity(item_id, quantity) {
 
 // Add product Reviews
 export function add_product_review(product_id, body) {
+	console.log("I am sending the following to backend", body)
 	return helper.authpost(url+`/product/${product_id}/reviews`,body)
 			.then((response) => response.json())
 }
