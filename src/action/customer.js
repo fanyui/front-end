@@ -16,7 +16,6 @@ import {  CREATE_CUSTOMER_REQUEST,
 } from '../constant'
 import { save_customer, customer_login, update_customer, get_customer_shipping_regions} from '../utils/api'
 import { showLoading, hideLoading } from 'react-redux-loading'
-import { Redirect } from 'react-router-dom'
 import React from 'react'
 // req is going to be the constant 
 //payload is the response or data to be set to store

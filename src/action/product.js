@@ -1,5 +1,6 @@
 import { FETCH_ALL_PRODUCT,
  ADD_PRODUCT,
+ FETCH_PRODUCT_REQUEST,
  RECEIVE_PRODUCT, 
  FETCH_PRODUCT_BY_ID, 
  RECEIVE_PRODUCT_DETAIL, 
@@ -55,6 +56,7 @@ export function handleInitialData( page =1, limit=20, description_length=200){
 	console.log( `page is ${page} limit ${limit} description_length is ${description_length} `)
 	return (dispatch) => {
 		dispatch(showLoading())
+		dispatch(request(FETCH_PRODUCT_REQUEST))
 		return getInnitalData( page, limit, description_length)
 			.then((response) =>{
 				dispatch(receiveProduct(response))
@@ -65,6 +67,7 @@ export function handleInitialData( page =1, limit=20, description_length=200){
 export function fetchProductInCategory( category){
 	return (dispatch) => {
 		dispatch(showLoading())
+		dispatch(request(FETCH_PRODUCT_REQUEST))
 		return fetch_product_in_category(category)
 			.then((response) =>{
 				dispatch(receiveProduct(response))
@@ -75,6 +78,7 @@ export function fetchProductInCategory( category){
 
 export function fetchProductInDepartment( departement){
 	return (dispatch) => {
+		dispatch(request(FETCH_PRODUCT_REQUEST))
 		dispatch(showLoading())
 		return fetch_product_in_department(departement)
 			.then((response) =>{

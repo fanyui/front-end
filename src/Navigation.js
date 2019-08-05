@@ -7,12 +7,7 @@ import SearchCustom from './common/SearchCustom'
 import {
   Button,
   Container,
-  Divider,
-  Grid,
-  Header,
   Icon,
-  Image,
-  List,
   Menu,
   Responsive,
   Segment,
@@ -76,7 +71,7 @@ class DesktopContainer extends Component {
               inverted={!fixed}
               secondary={!fixed}
               size='small'
-              className={{height:'20px'}}
+              style={{height:'20px'}}
             >
               <Container>
                 <Menu.Item as={Link} to='/'

@@ -17,7 +17,9 @@ import {
   Visibility,
   Card,
   Pagination,
-  Message
+  Message,
+  Dimmer,
+  Loader,
 } from 'semantic-ui-react'
 import * as actions from '../action/product'
 import {bindActionCreators} from 'redux'
@@ -28,6 +30,7 @@ import SuggestedItems from '../common/SuggestedItems'
 function mapStateToProps(state) {
   return {
     products: state.product.products,
+    requesting: state.product.requesting,
     total: state.product.total,
     // typically this will be the mapping
     token: "xdkdihj"
@@ -143,7 +146,7 @@ class  HomepageLayout extends React.Component{
 
       </Segment>}
     <Segment style={{ padding: '1em 0em' }} vertical>
-      <Grid container stackable verticalAlign='left'>
+      <Grid container stackable >
         <Grid.Row>
           <Grid.Column width={3}>
            <MenuVertical />
@@ -151,9 +154,17 @@ class  HomepageLayout extends React.Component{
           <Grid.Column width={11}>
 
           <Card.Group itemsPerRow={getWidth() > Responsive.onlyMobile.maxWidth ?3 : 1}>
-                            {  this.props.products &&  Array.isArray(this.props.products) && this.props.products.map((product,key) => (
 
-                  <ProductCard item ={product} />
+              {this.props.requesting && <Segment>
+              <Dimmer active inverted>
+                <Loader size='small'>Loading</Loader>
+              </Dimmer>
+
+              <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
+            </Segment>}
+                 {  this.props.products &&  Array.isArray(this.props.products) && this.props.products.map((product,key) => (
+
+                  <ProductCard key={key} item ={product} />
                   )) 
 
 

@@ -1,5 +1,6 @@
 import {
  FETCH_ALL_PRODUCT,
+ FETCH_PRODUCT_REQUEST,
  ADD_PRODUCT, 
  RECEIVE_PRODUCT,
  FETCH_PRODUCT_BY_ID,
@@ -23,12 +24,19 @@ import {
 
 export default function product(state = [], action) {
 	switch(action.type){
+		case  FETCH_PRODUCT_REQUEST:
+			return  Object.assign({}, state, {
+	        requesting: true,
+	        errors: false,
+	        })
 		case RECEIVE_PRODUCT: 
 			// return [
 			// 	...state,
 			// 	...action.product,
 			// ]
 			return  Object.assign({}, state, {
+				requesting: false,
+
 		        products: [
 		          ...action.product.product
 		        ],
