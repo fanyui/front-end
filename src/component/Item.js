@@ -98,6 +98,8 @@ class ItemDetail extends Component{
 				rating: this.state.rating,
 				review: this.state.review,
 				}
+				console.log("body is ", body)
+				console.log("json body is ", JSON.stringify(body))
 			this.props.handleAddProductReview(id, body)
 		}
 	}
@@ -271,8 +273,8 @@ class ItemDetail extends Component{
 
     		</Segment>
 			</Segment.Group>
-		{/* you may also like  */}
-		<SuggestedItems />
+		{/* you may also like  
+		<SuggestedItems />*/}
 
 		<Modal size="tiny" open={this.state.requiresAuth} onClose={this.close}>
           <Modal.Header>Create Your Account | Login </Modal.Header>

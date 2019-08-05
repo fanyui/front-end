@@ -220,8 +220,8 @@ class  HomepageLayout extends React.Component{
       </Grid>
     </Segment>
     <Segment style={{ padding: '8em 0em' }} vertical>
-  {/* This is the section for displaying suggested products*/}
-                <SuggestedItems />
+  {/* This is the section for displaying suggested products
+                <SuggestedItems />*/}
            
     </Segment>
     <Segment inverted vertical style={{ padding: '5em 0em' }}>
@@ -233,17 +233,17 @@ class  HomepageLayout extends React.Component{
               <List link inverted>
                 <List.Item as='a'>Sitemap</List.Item>
                 <List.Item as='a'>Contact Us</List.Item>
-                <List.Item as='a'>Religious Ceremonies</List.Item>
-                <List.Item as='a'>Gazebo Plans</List.Item>
+                <List.Item as='a'> Ceremonies</List.Item>
+                <List.Item as='a'> Plans</List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={3}>
               <Header inverted as='h4' content='Services' />
               <List link inverted>
-                <List.Item as='a'>Banana Pre-Order</List.Item>
-                <List.Item as='a'>DNA FAQ</List.Item>
+                <List.Item as='a'> Pre-Order</List.Item>
+                <List.Item as='a'> FAQ</List.Item>
                 <List.Item as='a'>How To Access</List.Item>
-                <List.Item as='a'>Favorite X-Men</List.Item>
+                <List.Item as='a'>Favorite </List.Item>
               </List>
             </Grid.Column>
             <Grid.Column width={7}>
@@ -251,7 +251,7 @@ class  HomepageLayout extends React.Component{
                 Footer Header
               </Header>
               <p>
-                Extra space for a call to action inside the footer that could help re-engage users.
+                Terms of Use - Law Enforcement Compliance Guide
               </p>
             </Grid.Column>
           </Grid.Row>
