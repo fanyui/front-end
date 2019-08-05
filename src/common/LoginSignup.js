@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import helper from '../utils/helper'
+const IMG_URL = "../asset/images/"
 
 function mapStateToProps(state) {
 	return {
@@ -108,7 +109,7 @@ class LoginForm extends React.Component{
 			 <Grid textAlign='center' style={{ height: '60vh' }} verticalAlign='middle'>
 			    <Grid.Column style={{ maxWidth: 450 }}>
 			      <Header as='h2' color='red' textAlign='center'>
-			        <Image src='/logo.png' /> Log-in to your account
+			        <Image src={`${IMG_URL}/logo.png`} /> Log-in to your account
 			      </Header>
 			      <Form size='large'>
 			        <Segment stacked>
@@ -213,7 +214,7 @@ class SignupForm extends React.Component {
 			<Grid textAlign='center' style={{ height: '70vh' }} verticalAlign='middle'>
 			    <Grid.Column style={{ maxWidth: 450 }}>
 			      <Header as='h2' color='red' textAlign='center'>
-			        <Image src='/logo.png' /> Create  your account
+			        <Image src={`${IMG_URL}/logo.png`} /> Create  your account
 			      </Header>
 			      <Form size='large'>
 			        <Segment stacked>

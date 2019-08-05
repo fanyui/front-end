@@ -5,6 +5,7 @@ import StripeCheckout from "react-stripe-checkout";
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
 import * as actions from '../action/customer'
+const IMG_URL = "../asset/images/"
 
 function mapStateToProps(state) {
 	return {
@@ -72,13 +73,13 @@ class Billing extends React.Component {
 			<Segment >
 			    <StripeCheckout
 			      label="Go Premium" //Component button text
-			      name="Business LLC" //Modal Header
+			      name="Afayi Inc" //Modal Header
 			      description="Upgrade to a premium account today."
 			      panelLabel="Go Premium" //Submit button in modal
 			      amount={(parseInt(this.props.total.total_amount) * 100)} //Amount in cents $9.99
 			      token={this.onToken}
 			      stripeKey={publishableKey}
-			      image="https://www.vidhub.co" //Pop-in header image
+			      image={`${IMG_URL}/logo.png`} //Pop-in header image
 			      billingAddress={false}
 			      currency="USD"
 
