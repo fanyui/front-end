@@ -77,6 +77,7 @@ export default function product(state = [], action) {
 
 		case ADD_PRODUCT_REVIEW_SUCCESS:
 			return  Object.assign({}, state, {
+			reviews: action.payload,
 	        requesting: false,
 	        errors: false
 	        })
