@@ -59,7 +59,6 @@ class Billing extends React.Component {
     }).then(response => {
       response.json().then(data => {
       	console.log(data)
-        alert(`We are in business,`);
         this.props.handleChangeTab("success")
       });
     });
@@ -94,10 +93,10 @@ class Billing extends React.Component {
 
 	            Order Details
 	          </Button>
-			  	<Button  onClick={()=>this.props.handleChangeTab("success")} color="red" floated='right'>
+			  	{/*<Button  onClick={()=>this.props.handleChangeTab("success")} color="red" floated='right'>
 	            Confirm
 	            <Icon name='right chevron' />
-	          </Button>
+	          </Button>*/}
 	          </Container>
 			</Segment>
 			</Segment>

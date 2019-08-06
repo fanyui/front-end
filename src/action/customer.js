@@ -45,7 +45,7 @@ function responseHelperLogin(req, payload) {
 	}
 }
 function logOutHelper(req) {
-	// localStorage.removeItem('token')
+	localStorage.removeItem('token')
 	return {
 		type: req,
 	}

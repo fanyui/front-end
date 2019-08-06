@@ -14,8 +14,8 @@ export default {
 	 },	
 
 	  logOut(){
-	  	 handleCustomerLogout()
 	 	 localStorage.removeItem('token')
+	 	 window.location.reload()
 	 	 return <Redirect to='/' />
 	 },
 
