@@ -20,7 +20,6 @@ import Home from './component/Home'
     }
 
   render(){
-
   return (
     <Router>
     <Fragment> 

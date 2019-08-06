@@ -122,7 +122,15 @@ class  HomepageLayout extends React.Component{
     hideHome = () => this.setState({
       onHome: false
     });
+    handlePing =() =>{
+      fetch("https://nodebackendreactfrontend.herokuapp.com/api/v1/shipping/regions/")
+      .then((response) => response.json())
+      .then((resp) => console.log("ping successfull"))
+    }
   render(){
+      //constantly ping the heroku server to prevent the app dynos from sleeping
+        setTimeout(this.handlePing, 5000);
+
     const IMG_URL = "../asset/dress.jpg"
 
             const {

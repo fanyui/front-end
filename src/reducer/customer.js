@@ -21,10 +21,8 @@ export default function customer(state = [], action) {
 	switch(action.type){
 		case CREATE_CUSTOMER_SUCCESS: 
 			return  Object.assign({}, state, {
-		        customer: action.payload,
-		        token: action.payload.accessToken,
-
-		        
+		        customer: action.payload.customer,
+		        token: {auth: action.payload.auth, token: action.payload.token}    
 		     })
      	case FETCH_CUSTOMERS: 
 			return  Object.assign({}, state, {
