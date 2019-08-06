@@ -53,7 +53,6 @@ class DesktopContainer extends Component {
           </Modal.Content>
           <Modal.Actions>
             <Button onClick={this.close} negative>close</Button>
-            <Button onClick={this.close} positive icon='checkmark' labelPosition='right' content='OK' />
           </Modal.Actions>
         </Modal>
         <Visibility
@@ -219,7 +218,6 @@ class MobileContainer extends Component {
           </Modal.Content>
           <Modal.Actions>
             <Button onClick={this.close} negative>close</Button>
-            <Button onClick={this.close} positive icon='checkmark' labelPosition='right' content='OK' />
           </Modal.Actions>
         </Modal>
       </Responsive>
