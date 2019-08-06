@@ -163,7 +163,7 @@ class  HomepageLayout extends React.Component{
 
           <Card.Group itemsPerRow={getWidth() > Responsive.onlyMobile.maxWidth ?3 : 1}>
 
-              {this.props.requesting && <Segment>
+              {this.props.requesting && <Segment padded='very'>
               <Dimmer active inverted>
                 <Loader size='small'>Loading</Loader>
               </Dimmer>

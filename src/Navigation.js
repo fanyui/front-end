@@ -92,6 +92,7 @@ class DesktopContainer extends Component {
                     <Button onClick={this.handleLogin} inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
                       Sign Up
                     </Button>
+                      <Button as={Link} to='/cart' circular color='shopping cart' style={{ marginLeft: '0.5em' }} icon='shopping cart' />
 
                     </Menu.Item>
                     : 
@@ -196,6 +197,7 @@ class MobileContainer extends Component {
                     <Button onClick={this.handleLogin} style={{ marginLeft: '0.5em' }}>
                       Sign Up
                     </Button>
+                      <Button as={Link} to='/cart' circular color='shopping cart' style={{ marginLeft: '0.5em' }} icon='shopping cart' />
                     </Menu.Item>
                     : 
                     <Menu.Item position='right'>
