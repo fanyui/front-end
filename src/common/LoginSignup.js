@@ -37,7 +37,7 @@ class LoginSignup extends React.Component{
 		     }
 			return (
 				<Segment basic >
-					{ this.state.context ? <LoginForm loggingIn ={this.props.loggingIn} auth={ this.props.token && this.props.token.auth} handleCustomerLogin ={this.props.handleCustomerLogin} handleChangeContext = {this.handleChangeContext} /> : <SignupForm errors={this.props.errors} handleChangeContext = {this.handleChangeContext} handleCustomerCreate={this.props.handleCustomerCreate} /> }
+					{ this.state.context ? <LoginForm loggingIn ={this.props.loggingIn} auth={ this.props.token && this.props.token.auth} handleCustomerLogin ={this.props.handleCustomerLogin} handleChangeContext = {this.handleChangeContext} /> : <SignupForm errors={this.props.errors} handleChangeContext = {this.handleChangeContext} handleCustomerCreate={this.props.handleCustomerCreate}  auth={ this.props.token && this.props.token.auth}  /> }
 				</Segment>
 			);
 	}
@@ -219,7 +219,11 @@ class SignupForm extends React.Component {
 			      <Form size='large'>
 			        <Segment stacked>
 			       { this.props.errors  &&<Message color="red">
-			          this.props.errors
+			          {this.props.errors}
+			        </Message>
+			    	}
+			    	{ this.props.auth==false &&<Message color="red">
+			          Invalid Email or password Please try again.
 			        </Message>
 			    	}
 			          <Form.Input fluid onBlur={this.handleOnBlur} error = {this.state.errors.email }  onChange={this.handlechange} name="email"  icon='mail' iconPosition='left' placeholder='E-mail address' />
