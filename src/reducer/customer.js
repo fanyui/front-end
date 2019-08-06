@@ -8,7 +8,8 @@ import {  CREATE_CUSTOMER_REQUEST,
 	UPDATE_CUSTOMER_REQUEST,
 	UPDATE_CUSTOMER_FAILURE,
 	CUSTOMER_LOGIN_FAILURE,
-
+	CUSTOMER_LOGOUT_SUCCESS,
+	CUSTOMER_LOGOUT_REQUEST,
 	CUSTOMER_SHIPPING_REGIONS_REQUEST,
 	CUSTOMER_SHIPPING_REGIONS_SUCCESS,
 	CUSTOMER_SHIPPING_REGIONS_FAILURE
@@ -56,6 +57,15 @@ export default function customer(state = [], action) {
 			return  Object.assign({}, state, {
 	        errors: action.payload,
 	        loggingIn: false,
+	        })
+		case CUSTOMER_LOGOUT_REQUEST:
+			return  Object.assign({}, state, {
+	        loggingOut: true,
+	        })
+		case CUSTOMER_LOGOUT_SUCCESS:
+			return  Object.assign({}, state, {
+	        token: null,
+	        loggingOut: false,
 	        })
 //customer shipping information 
 		case CUSTOMER_SHIPPING_REGIONS_SUCCESS: 
