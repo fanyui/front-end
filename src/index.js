@@ -11,7 +11,7 @@ import middleware from './middleware'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = createStore(reducer,composeEnhancers(middleware)); 
+export const store = createStore(reducer,composeEnhancers(middleware)); 
 // const store = createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 // ); 
 

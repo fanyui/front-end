@@ -1,6 +1,7 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
 import { handleCustomerLogout } from '../action/customer'
+import { store } from '../index'
 export default {
 
 	 isloggedin(){
@@ -14,8 +15,8 @@ export default {
 	 },	
 
 	  logOut(){
+	  	 store.dispatch(handleCustomerLogout())
 	 	 localStorage.removeItem('token')
-	 	 window.location.reload()
 	 	 return <Redirect to='/' />
 	 },
 
