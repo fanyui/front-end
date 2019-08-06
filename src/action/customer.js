@@ -76,7 +76,7 @@ export function handleCustomerCreate(customer){
 		dispatch(requestHelper(CREATE_CUSTOMER_REQUEST))
 		return save_customer(customer)
 			.then((response) =>{
-				dispatch(responseHelper(CREATE_CUSTOMER_SUCCESS, response))
+				dispatch(responseHelperLogin(CREATE_CUSTOMER_SUCCESS, response))
 				dispatch(hideLoading())
 			})
 			.catch(err=> dispatch(responseHelper(CREATE_CUSTOMER_FAILURE, err)))
